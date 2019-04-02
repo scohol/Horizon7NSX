@@ -37,6 +37,7 @@
         $RNAPPVAgent2APPVMGRName = "Desktops - App Volumes Agent to App Volumes Manager",
         $RNUEMMGR2UEMFSSMBName = "Desktops - UEM Flex Engine to UEM File Servers",
         $RNHZN7BlockAllName = "Block All",
+        $RNHZN7BlockVDI2VDIName ="Desktops - Block VDI to VDI Traffic",
         
         #Service Names
 
@@ -191,5 +192,5 @@
         Get-NsxFirewallSection $SNHZN7DesktopVDI_RDSHSectionName  | New-NsxFirewallRule -Name $RNHZN7Agent2V4HName -source $SGHZN7VDI,$SGHZN7RDSHost -destination $SGHZN7V4H -service $SVHZN7Agent2V4HRMI,$SVHZN7Agent2V4HDMS -action allow -AppliedTo $SGHZN7VDI,$SGHZN7RDSHost,$SGHZN7V4H -Position Top
         Get-NsxFirewallSection $SNHZN7DesktopVDI_RDSHSectionName  | New-NsxFirewallRule -Name $RNAPPVAgent2APPVMGRName -source $SGHZN7VDI,$SGHZN7RDSHost -destination $SGHZN7AppVolMgr -service $SVAPPVAgent2APPVMGRSSL,$SVAPPVAgent2APPVMGRSTD -action allow -AppliedTo $SGHZN7VDI,$SGHZN7RDSHost,$SGHZN7AppVolMgr -Position Top
         Get-NsxFirewallSection $SNHZN7DesktopVDI_RDSHSectionName  | New-NsxFirewallRule -Name $RNUEMMGR2UEMFSSMBName -source $SGHZN7VDI,$SGHZN7RDSHost -destination $SGHZN7UEM_FS -service $SVUEMMGR2UEMFSSMB -action allow -AppliedTo $SGHZN7VDI,$SGHZN7RDSHost,$SGHZN7UEM_FS -Position Top
-        Get-NsxFirewallSection $SNHZN7DesktopVDI_RDSHSectionName  | New-NsxFirewallRule -Name $RNHZN7BlockVDI2VDIName -source $SGHZN7VDI,$SGHZN7RDSHost -Destination $SGHZN7vIDM,$SGHZN7RDSHost -Action deny -AppliedTo $SGHZN7VDI,$SGHZN7RDSHost -Position Bottom
+        Get-NsxFirewallSection $SNHZN7DesktopVDI_RDSHSectionName  | New-NsxFirewallRule -Name $RNHZN7BlockVDI2VDIName -source $SGHZN7VDI,$SGHZN7RDSHost -Destination $SGHZN7VDI,$SGHZN7RDSHost -Action deny -AppliedTo $SGHZN7VDI,$SGHZN7RDSHost -Position Bottom
  
